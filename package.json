@@ -1,0 +1,13 @@
+{
+  "name": "html-fundamentals",
+  "version": "1.0.0",
+  "description": "HTML Fundamentals section",
+  "scripts": {
+    "start": "live-server"
+  },
+  "author": "arsial",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
