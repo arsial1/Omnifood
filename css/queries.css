@@ -91,54 +91,6 @@ Many developers prefer rem for its predictability and isolation. */
     1rem = 8px
     120rem = 960px */
   }
-  .btn-mobile-nav {
-    display: block;
-  }
-  .main-nav {
-    background-color: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    transform: translateX(100%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s ease-in;
-
-    /* Hide navigaion */
-    /* display:none; allows no trasitions at all, so we use alternative methods which allow transitions */
-
-    /* 1) Hide it visually*/
-    opacity: 0;
-
-    /* 2) Make it unaccessibe to mouse and keyboard*/
-    pointer-events: none;
-
-    /* 3) Hide it from screen readers*/
-    visibility: hidden;
-  }
-  .nav-open .main-nav {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
-    transform: translateX(0);
-  }
-  .nav-open .icon-mobile-nav[name="close-outline"] {
-    display: block;
-  }
-  .nav-open .icon-mobile-nav[name="menu-outline"] {
-    display: none;
-  }
-  .main-nav-list {
-    flex-direction: column;
-    gap: 4.8rem;
-  }
-  .main-nav-link {
-    font-size: 3rem;
-  }
   .section-hero {
     padding: 3.2rem 0 4.8rem 0;
   }
@@ -180,6 +132,7 @@ Many developers prefer rem for its predictability and isolation. */
     width: 80%;
   }
   .cta {
+    /* 3/5 = 60% + 2/5 = 40% */
     grid-template-columns: 3fr 2fr;
   }
   .cta-text-box {
@@ -194,6 +147,59 @@ Many developers prefer rem for its predictability and isolation. */
   .footer {
     padding: 6.4rem 0;
   }
+
+  /* MOBILE NAVIGATION */
+  .btn-mobile-nav {
+    display: block;
+    z-index: 9999;
+  }
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in;
+
+    /* Hide navigaion */
+    /* display:none; allows no trasitions at all, so we use alternative methods which allow transitions */
+
+    /* 1) Hide it visually*/
+    opacity: 0;
+
+    /* 2) Make it unaccessibe to mouse and keyboard*/
+    pointer-events: none;
+
+    /* 3) Hide it from screen readers*/
+    visibility: hidden;
+  }
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+    z-index: 9999;
+  }
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .main-nav-link {
+    font-size: 3rem;
+  }
 }
 
 /**********************/
@@ -206,15 +212,6 @@ Many developers prefer rem for its predictability and isolation. */
   }
   .grid--5--cols {
     grid-template-columns: repeat(6, 1fr);
-  }
-  .nav-col {
-    grid-column: span 2;
-    margin-bottom: 3.2rem;
-  }
-  .logo-col,
-  .address-col {
-    grid-row: 2;
-    grid-column: span 3;
   }
   .heading-secondary {
     margin-bottom: 4rem;
@@ -240,6 +237,15 @@ Many developers prefer rem for its predictability and isolation. */
   }
   .pricing-plan {
     width: 100%;
+  }
+  .nav-col {
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+  .logo-col,
+  .address-col {
+    grid-row: 2;
+    grid-column: span 3;
   }
 }
 
